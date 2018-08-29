@@ -59,7 +59,7 @@ provider "gsuite" {
                              ]
 }
 module "project-factory" {
-  source                   = "../../../"
+  source                   = "../../../modules/gsuite_enabled/"
   name                     = "$PROJECT_NAME"
   random_project_id        = "$PROJECT_RANDOM_ID"
   org_id                   = "$ORG_ID"
@@ -98,7 +98,7 @@ output "project_info_example" {
 }
 
 output "project_info_number" {
-  value       = "${module.project-factory.project_number"
+  value       = "${module.project-factory.project_number}"
 }
 
 output "domain_example" {
@@ -130,5 +130,5 @@ run_bats
 
 # # # Clean the environment
 cd - || exit
-# clean_workdir
+clean_workdir
 echo "Integration test finished"

@@ -46,9 +46,19 @@ variable "group_name" {
   default     = ""
 }
 
+variable "create_group" {
+  description = "Whether to create the group or not"
+  default     = "false"
+}
+
 variable "group_role" {
   description = "The role to give the controlling group (group_name) over the project (defaults to project editor)"
   default     = "roles/editor"
+}
+
+variable "sa_group" {
+  description = "A GSuite group to place the default Service Account for the project in"
+  default     = ""
 }
 
 variable "sa_role" {
@@ -64,11 +74,6 @@ variable "activate_apis" {
 
 variable "usage_bucket_name" {
   description = "Name of a GCS bucket to store GCE usage reports in (optional)"
-  default     = ""
-}
-
-variable "usage_bucket_prefix" {
-  description = "Prefix in the GCS bucket to store GCE usage reports in (optional)"
   default     = ""
 }
 
@@ -95,6 +100,11 @@ variable "bucket_project" {
 
 variable "bucket_name" {
   description = "A name for a GCS bucket to create (in the bucket_project project), useful for Terraform state (optional)"
+  default     = ""
+}
+
+variable "api_sa_group" {
+  description = "A GSuite group to place the Google APIs Service Account for the project in"
   default     = ""
 }
 
